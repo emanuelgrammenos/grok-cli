@@ -11,6 +11,7 @@ setup(
         'langchain',
         'langchain_openai',
         'langchain_community',
+        'python-dotenv',
     ],
     entry_points={
         'console_scripts': [

@@ -1,11 +1,15 @@
 import click
 import os
+from dotenv import load_dotenv
 from .agent import GrokAgent
 
 @click.command()
 @click.option('--api-key', default=None, help='xAI API key. If not provided, uses XAI_API_KEY env var.')
 @click.option('--dev', is_flag=True, help='Use cheaper OpenAI model for development (requires OPENAI_API_KEY)')
 def main(api_key, dev):
+    # Load environment variables from .env file
+    load_dotenv()
+    
     if dev:
         # Development mode with cheaper OpenAI model
         openai_key = os.getenv('OPENAI_API_KEY')
